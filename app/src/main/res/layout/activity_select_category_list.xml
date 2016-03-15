@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.esprit.activities.Select_Category_List">
+    tools:context=".SelectCategoryList">
 
     <ListView
-        android:id="@+id/lvUsers"
+        android:id="@+id/lvCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

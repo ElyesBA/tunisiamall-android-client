@@ -1,7 +1,9 @@
 package edu.esprit.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class AddSubCategory extends AppCompatActivity {
 
@@ -9,6 +11,10 @@ public class AddSubCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_sub_category);
+    }
 
+    public void selectCategory(View v){
+        Intent i = new Intent(AddSubCategory.this, SelectCategoryList.class);
+        startActivity(i);
     }
 }

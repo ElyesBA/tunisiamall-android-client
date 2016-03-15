@@ -1,46 +1,172 @@
 package edu.esprit.entities;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
 
-	public int idUser;
+public class User implements Parcelable {
 
-	public String address;
+    private int idUser;
+    private String address;
+    private String firstName;
+    private String gender;
+    private String job;
+    private String lastName;
+    private String login;
+    private String mail;
+    private String password;
+    private String phone;
+    private String pictureUrl;
 
-	public String login;
+    public User() {
+    }
 
-	public String mail;
+    public User(Parcel in) {
+        idUser = in.readInt();
+        address = in.readString();
+        firstName = in.readString();
+        gender = in.readString();
+        job = in.readString();
+        lastName = in.readString();
+        login = in.readString();
+        mail = in.readString();
+        password = in.readString();
+        phone = in.readString();
+        pictureUrl = in.readString();
+    }
 
-	public String password;
+    public int getIdUser() {
+        return idUser;
+    }
 
-	public String phone;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
 
-	public String firstName;
+    public String getAddress() {
+        return address;
+    }
 
-	public String lastName;
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String gender;
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public User(){
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+    public String getGender() {
+        return gender;
+    }
 
-		User user = (User) o;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-		if (idUser != user.idUser) return false;
-		if (!firstName.equals(user.firstName)) return false;
-		return lastName.equals(user.lastName);
+    public String getJob() {
+        return job;
+    }
 
-	}
+    public void setJob(String job) {
+        this.job = job;
+    }
 
-	@Override
-	public int hashCode() {
-		int result = idUser;
-		result = 31 * result + firstName.hashCode();
-		result = 31 * result + lastName.hashCode();
-		return result;
-	}
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(idUser);
+        dest.writeString(address);
+        dest.writeString(firstName);
+        dest.writeString(gender);
+        dest.writeString(job);
+        dest.writeString(lastName);
+        dest.writeString(login);
+        dest.writeString(mail);
+        dest.writeString(password);
+        dest.writeString(phone);
+        dest.writeString(pictureUrl);
+    }
+
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return idUser == user.idUser;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return idUser;
+    }
 }

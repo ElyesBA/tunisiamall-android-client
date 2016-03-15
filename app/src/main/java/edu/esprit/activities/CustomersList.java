@@ -20,13 +20,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import edu.esprit.adapters.UserAdapter;
+import edu.esprit.delegates.UserDelegate;
 import edu.esprit.entities.User;
 import edu.esprit.fragments.UserInfoDialog;
 
 public class CustomersList extends AppCompatActivity {
-    UserAdapter adapter;
     ArrayList<User> usersList;
-    static User selectedUser = null;
+    User selectedUser = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ public class CustomersList extends AppCompatActivity {
     }
 
     private void populateUsersList() {
-        usersList = new ArrayList<>();
-        adapter = new UserAdapter(this, usersList);
+        usersList = UserDelegate.findAll();
+        UserAdapter adapter = new UserAdapter(this, usersList);
         ListView listView = (ListView) findViewById(R.id.lvUsers);
         listView.setAdapter(adapter);
         registerForContextMenu(listView);
@@ -90,17 +90,6 @@ public class CustomersList extends AppCompatActivity {
                 return false;
             }
         });
-
-        User user = new User();
-        user.gender = "m";
-        user.firstName = "Elyes";
-        user.lastName = "Ben Abdelkader";
-        usersList.add(user);
-        user = new User();
-        user.gender = "f";
-        user.firstName = "Nourhene";
-        user.lastName = "Ben Abdelkader";
-        usersList.add(user);
     }
 
     @Override

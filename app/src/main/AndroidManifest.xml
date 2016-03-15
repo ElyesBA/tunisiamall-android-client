@@ -24,14 +24,14 @@
         <activity android:name=".Inbox" />
         <activity android:name=".Chat" />
         <activity android:name=".ClientMenu">
-
-        </activity>
-        <activity android:name=".ShopOwnerMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ShopOwnerMenu">
+
         </activity>
     </application>
 

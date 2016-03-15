@@ -2,6 +2,7 @@ package edu.esprit.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuInflater;
@@ -41,7 +42,7 @@ public class SubCategoriesList extends AppCompatActivity implements PopupMenu.On
         adapter = new SubCategoryAdapter(this, SubCategoriesList);
         alertDialogBuilder = new AlertDialog.Builder(this);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener((AdapterView.OnItemClickListener)activity);
+        listView.setOnItemClickListener((AdapterView.OnItemClickListener) activity);
     }
 
     @Override
@@ -63,5 +64,10 @@ public class SubCategoriesList extends AppCompatActivity implements PopupMenu.On
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.sub_category_menu, popup.getMenu());
         popup.show();
+    }
+
+    public void AddNewSubCategory(View v){
+        Intent i = new Intent(SubCategoriesList.this, AddSubCategory.class);
+        startActivity(i);
     }
 }

@@ -33,10 +33,10 @@ public class CustomersList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers_list);
-        populateUsersList();
+        populateList();
     }
 
-    private void populateUsersList() {
+    private void populateList() {
         usersList = UserDelegate.findAll();
         UserAdapter adapter = new UserAdapter(this, usersList);
         ListView listView = (ListView) findViewById(R.id.lvUsers);

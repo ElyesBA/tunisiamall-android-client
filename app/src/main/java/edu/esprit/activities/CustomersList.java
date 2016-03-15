@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
 import edu.esprit.adapters.UserAdapter;
 import edu.esprit.delegates.UserDelegate;
 import edu.esprit.entities.User;
@@ -50,7 +51,7 @@ public class CustomersList extends AppCompatActivity {
                 // Here you can do something when items are selected/de-selected,
                 // such as update the title in the CAB
                 selectedUser = usersList.get(position);
-                mode.getMenu().getItem(0).setTitle(selectedUser.firstName + " " + selectedUser.lastName);
+                mode.getMenu().getItem(0).setTitle(selectedUser.getFirstName() + " " + selectedUser.getLastName());
             }
 
             @Override

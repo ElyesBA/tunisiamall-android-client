@@ -8,17 +8,18 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
 import edu.esprit.entities.Category;
+import edu.esprit.entities.Subcategory;
 
 
 public class CategoryDialog extends DialogFragment {
 
     public CategoryDialog(){}
 
-    public static CategoryDialog newInstance(Category c) {
+    public static CategoryDialog newInstance(Category c, Subcategory s) {
         CategoryDialog f = new CategoryDialog();
         Bundle args = new Bundle();
-        args.putInt("id", c.idCategory);
-        args.putString("label", c.libelle);
+        args.putParcelable("Category", c);
+        args.putParcelable("Subcategory", s);
         f.setArguments(args);
         return f;
     }
@@ -27,7 +28,11 @@ public class CategoryDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder.setTitle("Confirmation");
-        alertDialogBuilder.setMessage("select " + getArguments().getString("label") + " ?");
+        Category c = getArguments().getParcelable("Category");
+        Subcategory s = getArguments().getParcelable("Subcategory");
+        alertDialogBuilder.setMessage("Label: " + s.getLibelle() + "\n" +
+                "Description: " + s.getDescription() + "\n" +
+                "Category: " + c.getLibelle());
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

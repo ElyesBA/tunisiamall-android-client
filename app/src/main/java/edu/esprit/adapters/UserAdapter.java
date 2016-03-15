@@ -25,13 +25,13 @@ public class UserAdapter extends ArrayAdapter<User> {
         }
         ImageView icon = (ImageView) convertView.findViewById(R.id.userItemIcon);
         TextView name = (TextView) convertView.findViewById(R.id.userItemName);
-        if(user.gender == "m"){
+        if(user.getGender() == "m"){
             icon.setImageResource(R.drawable.user_male);
         }
         else{
             icon.setImageResource(R.drawable.user_female);
         }
-        name.setText(user.firstName + " " + user.lastName);
+        name.setText(user.getFirstName() + " " + user.getLastName());
         return convertView;
     }
 }

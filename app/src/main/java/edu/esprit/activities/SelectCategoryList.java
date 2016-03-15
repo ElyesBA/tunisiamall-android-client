@@ -21,7 +21,7 @@ public class SelectCategoryList extends AppCompatActivity {
     private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             FragmentManager fm = getSupportFragmentManager();
-            CategoryDialog alertDialog = new CategoryDialog().newInstance(CategoriesList.get(position));
+            CategoryDialog alertDialog = new CategoryDialog().newInstance(CategoriesList.get(position), subcategory);
             alertDialog.show(fm, "alertDialog");
         }
     };
@@ -30,8 +30,8 @@ public class SelectCategoryList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_category_list);
-        subcategory.idSubCategory = getIntent(
-                CategoriesList = CategoryDelegate.findAll();
+        subcategory = getIntent().getParcelableExtra("Subcategory");
+        CategoriesList = CategoryDelegate.findAll();
         CategoryAdapter adapter = new CategoryAdapter(this, CategoriesList);
         ListView listView = (ListView) findViewById(R.id.lvCategories);
         listView.setAdapter(adapter);

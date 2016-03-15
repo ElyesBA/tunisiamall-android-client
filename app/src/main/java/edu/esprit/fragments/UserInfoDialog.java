@@ -26,11 +26,12 @@ public class UserInfoDialog extends DialogFragment {
     public static UserInfoDialog newInstance(User user) {
         UserInfoDialog frag = new UserInfoDialog();
         Bundle args = new Bundle();
-        args.putString("firstName",user.firstName);
-        args.putString("lastName",user.lastName);
-        args.putString("gender",user.gender);
-        args.putString("mail",user.mail);
-        args.putString("phone",user.phone);
+        /*args.putString("firstName",user.getFirstName());
+        args.putString("lastName",user.getLastName());
+        args.putString("gender",user.getGender());
+        args.putString("mail",user.getMail());
+        args.putString("phone",user.getPhone());*/
+        args.putParcelable("User", user);
         frag.setArguments(args);
         return frag;
     }
@@ -40,21 +41,22 @@ public class UserInfoDialog extends DialogFragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_details, container);
         getDialog().setTitle("User Details");
+        User user = getArguments().getParcelable("User");
         TextView text = (TextView) view.findViewById(R.id.user_details_first);
-        text.setText(getArguments().getString("firstName", "-"));
+        text.setText(user.getFirstName());
         text = (TextView) view.findViewById(R.id.user_details_last);
-        text.setText(getArguments().getString("lastName", "-"));
+        text.setText(user.getLastName());
         text = (TextView) view.findViewById(R.id.user_details_gender);
-        if(getArguments().getString("gender") == "f"){
+        if(user.getGender() == "f"){
             text.setText("Female");
         }
         else{
             text.setText("Male");
         }
         text = (TextView) view.findViewById(R.id.user_details_mail);
-        text.setText(getArguments().getString("mail", "-"));
+        text.setText(user.getMail());
         text = (TextView) view.findViewById(R.id.user_details_phone);
-        text.setText(getArguments().getString("phone", "-"));
+        text.setText(user.getPhone());
         return view;
     }
 

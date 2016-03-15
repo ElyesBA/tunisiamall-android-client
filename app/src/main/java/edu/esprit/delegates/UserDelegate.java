@@ -10,14 +10,16 @@ public class UserDelegate {
         if(usersList == null){
             usersList = new ArrayList<>();
             User u = new User();
-            u.firstName = "Foulena";
-            u.lastName = "Ben Foulena";
-            u.gender = "f";
+            u.setIdUser(1);
+            u.setFirstName("Foulena");
+            u.setLastName("Ben Foulena");
+            u.setGender("f");
             usersList.add(u);
             u = new User();
-            u.firstName = "Foulen";
-            u.lastName = "Ben Foulen";
-            u.gender = "m";
+            u.setIdUser(2);
+            u.setFirstName("Foulen");
+            u.setLastName("Ben Foulen");
+            u.setGender("m");
             usersList.add(u);
         }
         return  usersList;

@@ -11,14 +11,14 @@ public class CategoryDelegate {
         if(categoriesList == null){
             categoriesList = new ArrayList<>();
             Category g = new Category();
-            g.idCategory = 1;
-            g.libelle = "libelle 1";
-            g.description = "description 1";
+            g.setIdCategory(1);
+            g.setLibelle("libelle 1");
+            g.setDescription("description 1");
             categoriesList.add(g);
             g = new Category();
-            g.idCategory = 2;
-            g.libelle = "libelle 2";
-            g.description = "description 2";
+            g.setIdCategory(2);
+            g.setLibelle("libelle 2");
+            g.setDescription("description 2");
             categoriesList.add(g);
         }
         return  categoriesList;

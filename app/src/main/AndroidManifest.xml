@@ -18,19 +18,20 @@
             !
             -->
         </activity>
-        <activity android:name=".AddSubCategory">
-        </activity>
+        <activity android:name=".AddSubCategory" />
         <activity android:name=".SelectCategoryList" />
-        <activity android:name=".SubCategoriesList">
+        <activity android:name=".SubCategoriesList" />
+        <activity android:name=".Inbox" />
+        <activity android:name=".Chat" />
+        <activity android:name=".ClientMenu">
+
         </activity>
-        <activity android:name=".Inbox">
+        <activity android:name=".ShopOwnerMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Chat">
         </activity>
     </application>
 

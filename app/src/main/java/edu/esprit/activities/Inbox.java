@@ -1,5 +1,6 @@
 package edu.esprit.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -87,7 +88,9 @@ public class Inbox extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Message m = inboxList.get(position);
-                Log.i("########","Click !");
+                Intent i = new Intent(Inbox.this, Chat.class);
+                i.putExtra("User", m.getSender());
+                startActivity(i);
             }
         });
     }

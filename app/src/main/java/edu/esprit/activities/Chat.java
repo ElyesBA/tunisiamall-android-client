@@ -16,27 +16,33 @@ import java.util.Date;
 import edu.esprit.adapters.ChatAdapter;
 import edu.esprit.delegates.MessageDelegate;
 import edu.esprit.entities.Message;
+import edu.esprit.entities.User;
 
 public class Chat extends AppCompatActivity {
 
+    private TextView chatUsername;
     private EditText messageET;
     private ListView messagesContainer;
     private Button sendBtn;
     private ChatAdapter adapter;
     private ArrayList<Message> chatHistory;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        user = getIntent().getParcelableExtra("User");
         initControls();
     }
 
     private void initControls() {
+        chatUsername = (TextView) findViewById(R.id.chat_username);
         messagesContainer = (ListView) findViewById(R.id.messagesContainer);
         messageET = (EditText) findViewById(R.id.messageEdit);
         sendBtn = (Button) findViewById(R.id.chatSendButton);
 
+        chatUsername.setText(user.getFirstName());
         RelativeLayout container = (RelativeLayout) findViewById(R.id.container);
         loadDummyHistory();
 

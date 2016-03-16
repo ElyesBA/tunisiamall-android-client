@@ -37,7 +37,7 @@ public class CustomersList extends AppCompatActivity {
     }
 
     private void populateList() {
-        usersList = UserDelegate.findAll();
+        usersList = new UserDelegate().findAll();
         UserAdapter adapter = new UserAdapter(this, usersList);
         ListView listView = (ListView) findViewById(R.id.lvUsers);
         listView.setAdapter(adapter);

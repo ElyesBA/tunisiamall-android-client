@@ -5,12 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import edu.esprit.delegates.UserDelegate;
+import edu.esprit.entities.User;
+
 public class ClientMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_menu);
+        User u = new UserDelegate().find(1);
+        System.out.println("#######" + u.getFirstName() + " " + u.getLastName());
     }
 
     public void clientCart(View v){
